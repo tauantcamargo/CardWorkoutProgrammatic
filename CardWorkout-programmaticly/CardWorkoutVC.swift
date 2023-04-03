@@ -14,6 +14,7 @@ class CardWorkoutVC: UIViewController {
     let restartButton       = CWButton(backgroundColor: .systemGreen, title: "Restart")
     let rulesButton         = CWButton(backgroundColor: .systemBlue, title: "Rules")
     
+    var cards: [UIImage]    = Card.allValues
     var timer: Timer!
 
     override func viewDidLoad() {
@@ -85,7 +86,7 @@ class CardWorkoutVC: UIViewController {
     }
     
     @objc func showRandomImage() {
-        cardImageView.image = Card.allValues.randomElement() ?? UIImage(named: "AS")
+        cardImageView.image = cards.randomElement() ?? UIImage(named: "AS")
     }
     
     @objc func stopTimer() {
