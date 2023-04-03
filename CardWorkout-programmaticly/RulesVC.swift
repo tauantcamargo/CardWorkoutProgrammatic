@@ -20,6 +20,7 @@ class RulesVC: UIViewController {
         
         configureTitleLabel()
         configureRulesLabel()
+        configureExerciseLabel()
     }
     
     func configureTitleLabel() {
@@ -51,6 +52,21 @@ class RulesVC: UIViewController {
             rulesLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
             rulesLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             rulesLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)
+        ])
+    }
+    
+    func configureExerciseLabel() {
+        view.addSubview(exerciseLabel)
+        exerciseLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        exerciseLabel.text = "♠️ = Push-ups\n\n♥️ = Sit-up\n\n♣️ = Burpees\n\n♦️ = Jumping Jacks"
+        exerciseLabel.font = .systemFont(ofSize: 16, weight: .semibold)
+        exerciseLabel.numberOfLines = 0
+        
+        NSLayoutConstraint.activate([
+            exerciseLabel.topAnchor.constraint(equalTo: rulesLabel.bottomAnchor, constant: 60),
+            exerciseLabel.widthAnchor.constraint(equalToConstant: 200),
+            exerciseLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
 }
